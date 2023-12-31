@@ -50,10 +50,25 @@ body {
     gap: 70px;
 }
 
+.interface .userInterface .userInput .item,
+.interface .computerResponse .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.interface .userInterface .userInput .item .text,
+.interface .computerResponse .item .text {
+    font-size: 20px;
+}
+
 .interface .image {
     height: 150px;
     width: 150px;
     border: solid #323437;
+    border-radius: 150px;
 }
 
 .result {
