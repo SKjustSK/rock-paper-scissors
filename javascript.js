@@ -1,73 +1,80 @@
-/*
-1. Function to randomly return rock paper scissors
-2. Function to return who won by taking in player input and computer's choice
-3. game() function to play a best of five games and return who won
-*/
+let playerChoice = null;
+let computerChoice = null;
 
-const ROUNDS = 5;
+const userOptions = document.querySelectorAll('.image.input');
 
-console.log("ROCK, PAPER, SCISSORS, GO!");
-let gameResult = game();
-console.log(gameResult);
+userOptions.forEach((userOption) => {
 
-function game()
+    userOption.addEventListener('click' , () => {
+
+        // To set all borders to original color, then the selected option to green border
+        userOptions.forEach((userOption) => {
+            userOption.setAttribute('style', 'border-color: #323437;');
+        });
+        userOption.setAttribute('style', 'border-color: #32CD32;');
+
+        playerChoice = userOption.alt;
+        console.log(`Player: ${playerChoice}`);
+
+        let outcome = playRound(playerChoice);
+        console.log(`Computer: ${computerChoice}`);
+
+        console.log(outcome);
+        displayResult(outcome);
+    });
+}); 
+
+// Displays Winner by changing DOM
+function displayResult(result)
 {
-    let playerCounter = 0;
-    let computerCounter = 0;
+    const div = document.querySelector('.result');
 
-    for (let i = 0 ; i < ROUNDS ; i++)
+    if (result === "WON")
     {
-        console.log(`Round ${i+1}.`);
-        
-        // User Input
-        let playerChoice;
-        do
-        {
-            playerChoice = prompt(`Round ${i+1}. Rock, Paper, or Scissors?`);
-            playerChoice = playerChoice.toUpperCase();
-        }
-        while (playerChoice !== "ROCK" && playerChoice !== "PAPER" && playerChoice !== "SCISSORS");
+        div.textContent = `You ${result}! ${playerChoice} beats ${computerChoice}!`;
+    }
+    else if (result === "LOST")
+    {
+        div.textContent = `You ${result}! ${ computerChoice} beats ${playerChoice}!`;
+    }
+    else if (result === "TIE")
+    {
+        div.textContent = `TIE!`;
+    }
+    // If something goes wrong
+    else
+    {
+        div.textContent = "";
+    }  
+} 
 
-        // Computer's choice
-        let computerChoice = getComputerChoice();
+// Updates UI whenever a round is played to show computer's selection
+function computerDisplayChange()
+{
+    // Text change
+    const computerText = document.querySelector('.text.computer');
+    computerText.textContent = computerChoice;
 
-        // Result of round
-        let result = versus(playerChoice, computerChoice)
-        
-        if (result === "TIE")
+    // Image change
+    const optionImage = ["rock", "paper", "scissors"];
+    let image = document.querySelector('.image.computer');
+    for (let i = 0 ; i < optionImage.length ; i++)
+    {
+        if (computerChoice === optionImage[i].toUpperCase())
         {
-            console.log(`Tie! Replaying round!`);
-            i--;
-        }
-        else if (result === "PLAYER")
-        {
-            console.log(`Player wins! ${playerChoice} beats ${computerChoice}`);
-            playerCounter++;        
-        }
-        else if (result === "COMPUTER")
-        {
-            console.log(`Computer wins! ${computerChoice} beats ${playerChoice}`);
-            computerCounter++;
-        }
-
-        // Win condition
-        if (playerCounter === 3)
-        {
-            return "Player wins the game!";
-        }
-        // Lose condition
-        else if (computerCounter === 3)
-        {
-            return "Computer wins the game!";
+            image.src = `images/${optionImage[i]}Joke.jpg`;
         }
     }
 }
 
-
-function versus(playerChoice, computerChoice)
+// Returns 'WON', 'LOST', 'TIE'
+function playRound(playerChoice)
 {
-    let playerWins = "PLAYER";
-    let computerWins = "COMPUTER";
+    computerChoice = getComputerChoice();
+    computerDisplayChange();
+
+    let playerWins = "WON";
+    let computerWins = "LOST";
     if (playerChoice === computerChoice)
     {
         return "TIE";
@@ -108,10 +115,10 @@ function versus(playerChoice, computerChoice)
     }
 }
 
+// Returns "ROCK", "PAPER", or "SCISSORS"
 function getComputerChoice()
 {
     const options = ["ROCK" , "PAPER" , "SCISSORS"];
-
     let choiceNum = Math.floor(Math.random() * 3);
     let choice = options[choiceNum];
     return choice;

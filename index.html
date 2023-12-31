@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="javascript.js"></script> -->
+    <script src="javascript.js" defer></script>
 </head>
 <body>
     <div id = 'page'>
@@ -19,16 +19,16 @@
             <div class = 'userInterface'>
                 <div class = 'optionTitle'>Choose your move!</div>
                 <div class = 'userInput'>
-                    <div class = 'item'>
-                        <img src = "images/rock.jpg" alt = "Rock" class = "image">
+                    <div class = 'item' id = 'ROCK'>
+                        <img src = "images/rockJoke.jpg" alt = "ROCK" class = "image input">
                         <div class = 'text'>Rock</div>
                     </div>
-                    <div class = 'item'>
-                        <img src = "images/paper.jpg" alt = "Paper" class = "image">
+                    <div class = 'item input' id = 'PAPER'>
+                        <img src = "images/paperJoke.jpg" alt = "PAPER" class = "image input">
                         <div class = 'text'>Paper</div>
                     </div>
-                    <div class = 'item'>
-                        <img src = "images/scissors.jpg" alt = "Scissors" class = "image">
+                    <div class = 'item input' id = 'SCISSORS'>
+                        <img src = "images/scissorsJoke.jpg" alt = "SCISSORS" class = "image input">
                         <div class = 'text'>Scissors</div>
                     </div>
                 </div>
@@ -39,8 +39,8 @@
                     Computer Response is 
                 </div>
                 <div class = 'item'>
-                    <img src = "#" class = "image">
-                    <div class = 'text'>Waiting</div>
+                    <img src = "#" class = "image computer">
+                    <div class = 'text computer'>Waiting</div>
                 </div>
             </div>
         </div>
@@ -50,5 +50,9 @@
         </div>
 
     </div>
+
+    <script>
+        
+    </script>
 </body>
 </html>

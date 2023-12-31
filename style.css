@@ -67,7 +67,8 @@ body {
 .interface .image {
     height: 150px;
     width: 150px;
-    border: solid #323437;
+    border: 7px solid;
+    border-color: #323437;
     border-radius: 150px;
 }
 
