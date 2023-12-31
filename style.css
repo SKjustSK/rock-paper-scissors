@@ -7,7 +7,6 @@ body {
 #page {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     align-items: stretch;
     height: 100vh;
 }

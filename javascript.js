@@ -62,7 +62,7 @@ function computerDisplayChange()
     {
         if (computerChoice === optionImage[i].toUpperCase())
         {
-            image.src = `images/${optionImage[i]}Joke.jpg`;
+            image.src = `images/${optionImage[i]}.jpg`;
         }
     }
 }
