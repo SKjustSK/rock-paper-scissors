@@ -58,6 +58,14 @@ body {
     gap: 20px;
 }
 
+.interface .userInterface .userInput .item {
+    transition: transform .2s ease;
+}
+
+.interface .userInterface .userInput .item:hover {
+    transform: scale(1.1);
+}
+
 .interface .userInterface .userInput .item .text,
 .interface .computerResponse .item .text {
     font-size: 20px;
