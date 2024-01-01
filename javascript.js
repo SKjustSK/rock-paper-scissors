@@ -53,7 +53,7 @@ function computerDisplayChange()
 {
     // Text change
     const computerText = document.querySelector('.text.computer');
-    computerText.textContent = computerChoice;
+    computerText.textContent = computerChoice + '!';
 
     // Image change
     const optionImage = ["rock", "paper", "scissors"];
